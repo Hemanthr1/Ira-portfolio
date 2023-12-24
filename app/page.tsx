@@ -13,6 +13,7 @@ const workArray = [
     link: "https://quashbugs.com/",
     linkLabel: "Website",
     image: "/quash.png",
+    caseStudy: "",
   },
   {
     role: "Founding Designer",
@@ -21,7 +22,18 @@ const workArray = [
       "Contributed in turning a few post-its into a no-code data warehouse platform. Currently has 20 Unique Users.",
     link: "https://apperture.io",
     linkLabel: "Website",
+    caseStudy: "there",
     image: "/apperture.png",
+  },
+  {
+    role: "Product Designer",
+    company: "JIVA AI",
+    description:
+      "Helped building an AI Assistant for Judges in Karnataka High Court. Made for quick access of legal documents within the courtroom.",
+    link: "",
+    linkLabel: "Website",
+    caseStudy: "there",
+    image: "/jiva.png",
   },
   {
     role: "Design Consultant (Current)",
@@ -30,24 +42,18 @@ const workArray = [
       "Currently working on increasing the discoverability of stock baskets on the platform.",
     link: "https://neo.kotaksecurities.com/",
     linkLabel: "Download App",
+    caseStudy: "",
     image: "/kotak.png",
   },
-  {
-    role: "Product Designer",
-    company: "JIVA AI",
-    description:
-      "Helped building an AI Assistant for Judges in Karnataka High Court. Made for quick access of legal documents within the courtroom.",
-    link: "",
-    linkLabel: "Case Study",
-    image: "/jiva.png",
-  },
+
   {
     role: "Product Designer",
     company: "Bangalore Pulse",
     description:
       "Designed an app for the loyalty program for flyers at Bangalore International Airport with R360.",
     link: "https://drive.google.com/file/d/1tfSa-LVLko2tojQZ5EtAylLnc3V66BKr/view?usp=drive_link",
-    linkLabel: "Case Study",
+    linkLabel: "Website",
+    caseStudy: "there",
     image: "/pulse.png",
   },
 ];
@@ -67,14 +73,14 @@ export default function Home() {
         <section id="home">
           <div className="intro min-w-full px-7 py-20 flex flex-col items-start justify-center gap-5 md:gap-8 md:max-w-[895px] md:py-[180px] md:px-20 lg:px-[258px] ">
             <div className="flex flex-col flex-grow items-start justify-center gap-3 md:gap-4 w-full">
-              <p className="text-gray-300 text-2xl md:text-[48px] font-bold">
-                Hi! I’m Ira.
+              <p className="text-gray-700 text-2xl md:text-[48px] font-bold">
+                Hi! I'm Ira.
               </p>
               <div>
                 <p className="text-gray-700 text-2xl md:text-[48px] font-bold md:leading-[66px]">
                   A Product Designer
                 </p>{" "}
-                <p className="text-gray-700 text-2xl md:text-[48px] font-bold md:leading-[66px]">
+                <p className="text-gray-300 text-2xl md:text-[48px] font-bold md:leading-[66px]">
                   with management skills up her sleeve.
                 </p>
               </div>
@@ -111,13 +117,24 @@ export default function Home() {
                   <p className="text-[#4B4B5F] text-[14px] md:text-[24px] font-[400] max-w-[234px] md:max-w-[414px] mb-6 md:mb-10">
                     {work.description}
                   </p>
-                  <Link
-                    target="_blank"
-                    href={work.link}
-                    className="flex px-5 md:px-[18px] py-[10px] justify-center items-center rounded-full border border-solid border-[#4B4B5F] text-[#4B4B5F] text-[14px] md:text-[24px] font-[500] hover:bg-[#CFCFDB]"
-                  >
-                    {work.linkLabel}
-                  </Link>
+                  <div className="flex justify-start items-center gap-2 md:gap-4">
+                    {work.caseStudy && (
+                      <Link
+                        target="_blank"
+                        href={work.caseStudy}
+                        className="flex px-5 md:px-[18px] py-[10px] justify-center items-center rounded-full text-[14px] md:text-[24px] font-[500] bg-gray-800  text-white hover:bg-[#CFCFDB] hover:text-[#232333]"
+                      >
+                        Case Study
+                      </Link>
+                    )}
+                    <Link
+                      target="_blank"
+                      href={work.link}
+                      className="flex px-5 md:px-[18px] py-[10px] justify-center items-center rounded-full border border-solid border-[#4B4B5F] text-[#4B4B5F] text-[14px] md:text-[24px] font-[500] hover:bg-[#CFCFDB]"
+                    >
+                      {work.linkLabel}
+                    </Link>
+                  </div>
                 </div>
                 <div>
                   <Image
